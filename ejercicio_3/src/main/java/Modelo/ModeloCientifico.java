@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ModeloCientifico {
 
-	private ConexionMySQL mysql;
+	private static ConexionMySQL mysql;
 
 	public ModeloCientifico(ConexionMySQL mysql) {
 		this.mysql = mysql;
@@ -47,7 +47,7 @@ public class ModeloCientifico {
 
 	}
 
-	public void update(Cientifico cientificos) {
+	public static void update(Cientifico cientificos) {
 
 		try {
 			String sqlQuery = "UPDATE cientificos SET (DNI, Nombre) WHERE ID = "

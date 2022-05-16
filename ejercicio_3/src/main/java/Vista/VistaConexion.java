@@ -45,7 +45,7 @@ public class VistaConexion extends JFrame {
 		contentPane.add(ipLabel);
 		
 		textFieldIP = new JTextField();
-		textFieldIP.setText("192.168.1.145");
+		textFieldIP.setText("192.168.1.48");
 		textFieldIP.setColumns(10);
 		textFieldIP.setBounds(23, 107, 185, 20);
 		contentPane.add(textFieldIP);

@@ -17,25 +17,15 @@ import javax.swing.JComboBox;
 
 public class VistaUcientf extends JFrame {
 
+	
 	private JPanel contentPane;
-	private JTextField textField;
+	public JTextField textField;
+	public JTextField textField_dni;
+	public JButton btnEnviarDatos;
+	public JButton btnEliminar;
+	
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void vistaU() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaUcientf frame = new VistaUcientf();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -58,9 +48,10 @@ public class VistaUcientf extends JFrame {
 		lblNewLabel.setBounds(31, 52, 46, 14);
 		contentPane.add(lblNewLabel);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(31, 77, 30, 22);
-		contentPane.add(comboBox);
+		JTextField textField_dni = new JTextField();
+		textField_dni.setColumns(10);
+		textField_dni.setBounds(27, 77, 185, 20);
+		contentPane.add(textField_dni);
 		
 		
 		JLabel lblNombre = new JLabel("Nombre: ");
@@ -73,16 +64,14 @@ public class VistaUcientf extends JFrame {
 		contentPane.add(textField);
 		
 	
-		JButton btnEnviarDatos = new JButton("Actualizar");
+		btnEnviarDatos = new JButton("Actualizar");
 		btnEnviarDatos.setFont(new Font("SansSerif", Font.PLAIN, 11));
 		btnEnviarDatos.setBounds(55, 194, 89, 23);
 		contentPane.add(btnEnviarDatos);
-		
-		
-		
-		JButton btnEnviarDatos_1 = new JButton("Eliminar");
-		btnEnviarDatos_1.setFont(new Font("SansSerif", Font.PLAIN, 11));
-		btnEnviarDatos_1.setBounds(248, 194, 89, 23);
-		contentPane.add(btnEnviarDatos_1);
+	
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setFont(new Font("SansSerif", Font.PLAIN, 11));
+		btnEliminar.setBounds(297, 379, 89, 23);
+		contentPane.add(btnEliminar);
 	}
 }

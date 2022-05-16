@@ -9,12 +9,6 @@ public class Conexion {
 		this.mysql = new ConexionMySQL();
 	}
 
-	public void conectar() {
-
-		/* Conectar a mysql server */
-
-		mysql.conectar();
-	}
 
 	public void crearTablaCientifico() {
 

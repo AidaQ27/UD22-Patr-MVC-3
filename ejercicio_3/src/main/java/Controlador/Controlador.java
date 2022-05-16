@@ -13,10 +13,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Modelo.Cientifico;
+
 import Modelo.Conexion;
 import Modelo.ConexionMySQL;
 import Modelo.ConfigConexion;
 import Modelo.Proyecto;
+
 import Modelo.ModeloCientifico;
 import Modelo.ModeloProyecto;
 
@@ -24,6 +26,7 @@ import Vista.VistaC_cientf;
 import Vista.VistaC_proyec;
 import Vista.VistaConexion;
 import Vista.VistaPrincipal;
+
 import Vista.VistaUcientf;
 import Vista.VistaUproyec;
 
@@ -222,10 +225,20 @@ public class Controlador {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						Cientifico cientifico = new Cientifico();
-						cientifico.setNombre(vistaC_cientf.TxtField_Nombre.getText());
+						try {
+							
+							Cientifico cientifico = new Cientifico();
+							cientifico.setNombre(vistaC_cientf.TxtField_Nombre.getText());
+							
+							modeloCientif.insertar(cientifico);
+							JOptionPane dialog = new JOptionPane();
+							dialog.showMessageDialog(null, "Registro cliente insertado correctamente!");
+							
+						} catch(Exception e2) {
+							JOptionPane dialog = new JOptionPane();
+							dialog.showMessageDialog(null, "Error al insertar registro cliente");
+						}
 						
-						modeloCientif.insertar(cientifico);
 						
 					}
 				});
@@ -233,6 +246,7 @@ public class Controlador {
 		});
 		
 	}
+	
 	private void listenerNuevoVideoMenu() {
 		vistaPrincipal.nuevoVideoMenu.addActionListener(new ActionListener() {
 			
@@ -246,12 +260,19 @@ public class Controlador {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						
+						try {
 						Proyecto proyecto = new Proyecto();
 						proyecto.setNombre(vistaC_proyect.TxtField_Nombre.getText());
 						proyecto.setHoras(vistaC_proyect.TxtField_Horas.getText());
 						
-						
 						modeloProyecto.insertar(proyecto);
+						JOptionPane dialog = new JOptionPane();
+						dialog.showMessageDialog(null, "Registro video insertado correctamente!");
+						} catch(Exception e2) {
+							JOptionPane dialog = new JOptionPane();
+							dialog.showMessageDialog(null, "Error al insertar registro video");
+						}
 						
 					}
 				});
@@ -259,29 +280,155 @@ public class Controlador {
 		});
 		
 	}
+
+	// Buscar 
 	private void listenerBuscarClienteMenu() {
 		vistaPrincipal.buscarClienteMenu.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VistaUcientf vistaU = new VistaUcientf();
-				vistaU.setVisible(true);
-				vistaU.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			}
-		});
-		
-	}
-	private void listenerBuscarVideoMenu() {
-		vistaPrincipal.buscarVideoMenu.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				VistaUproyec vistaUVid = new VistaUproyec();
-				vistaUVid.setVisible(true);
-				vistaUVid.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			}
-		});
-		
+					vistaUcient = new VistaUcientf();
+					vistaUcient.setVisible(true);
+					vistaUcient.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				
+					vistaUcient.btnBuscar.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							try {
+								Cientifico cientifico = modeloCientif.mostrarPorId(Long.parseLong(vistaU.textFieldId.getText()));
+
+
+							} catch (Exception e2) {
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "No se ha encontrado el registro.");
+							}
+
+						}
+					});
+					
+					// Actualizar Cliente
+					vistaUcient.btnEnviarDatos.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+
+							try {
+								Cientifico cientifico = new Cientifico();
+								
+								cientifico.setNombre(vistaUcient.textField.getText());
+								cientifico.setDNI(vistaUcient.textField_dni.getText());
+								
+
+								ModeloCientifico.update(cientifico);
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "Registro actualizado con éxito!");
+							} catch (Exception e2) {
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "No se ha podido actualizar el registro.");
+							}
+
+						}
+					});
+					vistaUcient.btnEliminar.addActionListener(new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							try {
+								ModeloCientifico.delete(Long.parseLong(VistaUcientf.textField_dni.getText()));
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "Se ha eliminado el registro!");
+							} catch (Exception e2) {
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "No se ha podido eliminar el registro.");
+							}
+
+						}
+					});
+				}
+			});
+
+		}
+
+		/**
+		 * Menu boton buscar video
+		 */
+		private void listenerBuscarVideoMenu() {
+
+			vistaPrincipal.buscarVideoMenu.addActionListener(new ActionListener() {
+
+				// Accion click boton menu -> buscar -> video
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					vistaUProyect = new VistaUproyec();
+					vistaUProyect.setVisible(true);
+					vistaUProyect.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+					// Buscar Video
+					vistaUProyect.btnBuscar.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+
+							try {
+								Proyecto proyecto = modeloProyecto.mostrarPorId(Long.parseLong(VistaUproyec.textFieldId.getText()));
+
+								vistaUProyect.textFieldNombre.setText(proyecto.getNombre());
+								vistaUProyect.textFieldHoras.setText(proyecto.getHoras());
+								
+							} catch (Exception e2) {
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "No se ha encontrado el registro del video.");
+							}
+
+						}
+					});
+
+					// Actualizar Video
+					vistaUProyect.btnEnviarDatos.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							try {
+								Proyecto proyecto = new Proyecto();
+								proyecto.setID(Long.parseLong(VistaUproyec.textFieldId.getText()));
+								video.setTitle(VistaUproyec.textFieldTitle.getText());
+								video.setDirector(VistaUproyec.textFieldDirector.getText());
+								video.setId_cli(Integer.valueOf(VistaUproyec.textFieldIdCliente.getText()));
+
+								modeloVideos.update(video);
+
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "Se ha actualizado el registro!");
+							} catch (Exception e2) {
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "No se ha podido actualizar el registro.");
+							}
+
+						}
+					});
+					// Delete Video
+					VistaUproyec.btnEliminar.addActionListener(new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							
+							try {
+								modeloVideos.delete(Long.parseLong(VistaUproyec.textFieldId.getText()));
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "Se ha eliminado el registro.");
+							} catch (Exception e2) {
+								JOptionPane dialog = new JOptionPane();
+								dialog.showMessageDialog(null, "No se ha podido eliminar el registro.");
+							}
+
+						}
+					});
+				}
+			});
+
+		}
+
 	}
 
-}
+				
+		
+		
+	}
+	

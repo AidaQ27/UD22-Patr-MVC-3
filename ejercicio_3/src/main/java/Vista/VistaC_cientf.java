@@ -16,6 +16,7 @@ public class VistaC_cientf extends JFrame {
 
 	private JPanel contentPane;
 	public JTextField TxtField_Nombre;
+	public JTextField TxtField_DNI;
 	public JButton btnEnviarDatos;
 
 	/**
@@ -36,20 +37,28 @@ public class VistaC_cientf extends JFrame {
 		lblTitulo.setBounds(78, 11, 272, 19);
 		contentPane.add(lblTitulo);
 		
+		JLabel lbl_DNI = new JLabel("DNI:");
+		lbl_DNI.setBounds(20, 45, 86, 14);
+		contentPane.add(lbl_DNI);
+		
+		TxtField_DNI= new JTextField();
+		TxtField_DNI.setBounds(20, 69, 185, 20);
+		contentPane.add(TxtField_DNI);
+		TxtField_DNI.setColumns(10);
 		
 		JLabel lblApellido = new JLabel("Nombre: ");
-		lblApellido.setBounds(26, 52, 86, 14);
+		lblApellido.setBounds(20, 98, 86, 14);
 		contentPane.add(lblApellido);
 		
 		TxtField_Nombre = new JTextField();
 		TxtField_Nombre.setColumns(10);
-		TxtField_Nombre.setBounds(23, 77, 185, 20);
+		TxtField_Nombre.setBounds(20, 123, 185, 20);
 		contentPane.add(TxtField_Nombre);
 		
 		
 		btnEnviarDatos = new JButton("Aceptar");
 		btnEnviarDatos.setFont(new Font("SansSerif", Font.PLAIN, 11));
-		btnEnviarDatos.setBounds(23, 143, 89, 23);
+		btnEnviarDatos.setBounds(20, 166, 89, 23);
 		contentPane.add(btnEnviarDatos);
 	}
 }

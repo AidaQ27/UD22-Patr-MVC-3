@@ -3,9 +3,14 @@ package Modelo;
 public class ConfigConexion {
 
 	// direccion
-		private String direccion = "jdbc:mysql://192.168.1.145:3306";
-		private String user = "remote";
-		private String pass = "Reus_2022";
+	// direccion
+		private String direccion = "";
+		private String user = "";
+		private String pass = "";
+//		private String direccion = "jdbc:mysql://192.168.1.145:3306";
+//		private String user = "remote";
+//		private String pass = "Reus_2022";
+	
 		
 		public ConfigConexion() {
 		}

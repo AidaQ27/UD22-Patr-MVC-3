@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -16,25 +19,12 @@ import javax.swing.JButton;
 public class VistaUproyec extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	public JTextField textFieldNombre;
+	public JTextField textFieldHoras;
+	public JButton btnEnviarDatos;
+	public JButton btnEliminar;
+	public JButton btnBuscar;
 	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void vistaUVid() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaUproyec frame = new VistaUproyec();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -65,30 +55,42 @@ public class VistaUproyec extends JFrame {
 		lblnombre.setBounds(31, 132, 86, 14);
 		contentPane.add(lblnombre);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(31, 156, 185, 20);
-		contentPane.add(textField);
+		textFieldNombre = new JTextField();
+		textFieldNombre.setColumns(10);
+		textFieldNombre.setBounds(31, 156, 185, 20);
+		contentPane.add(textFieldNombre);
 		
 		JLabel lblhoras = new JLabel("Horas: ");
 		lblhoras.setBounds(31, 198, 86, 14);
 		contentPane.add(lblhoras);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(31, 223, 185, 20);
-		contentPane.add(textField_1);
+		textFieldHoras = new JTextField();
+		textFieldHoras.setColumns(10);
+		textFieldHoras.setBounds(31, 223, 185, 20);
+		contentPane.add(textFieldHoras);
+		
+		btnEnviarDatos = new JButton("Actualizar");
+		btnEnviarDatos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEnviarDatos.setFont(new Font("SansSerif", Font.PLAIN, 11));
+		btnEnviarDatos.setBounds(24, 478, 89, 23);
+		contentPane.add(btnEnviarDatos);
+	
+		
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setFont(new Font("SansSerif", Font.PLAIN, 11));
+		btnEliminar.setBounds(289, 479, 89, 23);
+		contentPane.add(btnEliminar);
+		
+		btnBuscar = new JButton("🔍︎");
+
+		btnBuscar.setBounds(72, 88, 46, 23);
+		contentPane.add(btnBuscar);
 		
 		
-		JButton btnEnviarDatos_1 = new JButton("Actualizar");
-		btnEnviarDatos_1.setFont(new Font("SansSerif", Font.PLAIN, 11));
-		btnEnviarDatos_1.setBounds(95, 280, 89, 23);
-		contentPane.add(btnEnviarDatos_1);
 		
-		JButton btnEnviarDatos_1_1 = new JButton("Eliminar");
-		btnEnviarDatos_1_1.setFont(new Font("SansSerif", Font.PLAIN, 11));
-		btnEnviarDatos_1_1.setBounds(255, 280, 89, 23);
-		contentPane.add(btnEnviarDatos_1_1);
 	}
 
 }
