@@ -24,6 +24,7 @@ public class VistaUproyec extends JFrame {
 	public JButton btnEnviarDatos;
 	public JButton btnEliminar;
 	public JButton btnBuscar;
+	public JTextField textFieldID;
 	
 
 	/**
@@ -46,10 +47,6 @@ public class VistaUproyec extends JFrame {
 		JLabel lblNewLabel = new JLabel("ID");
 		lblNewLabel.setBounds(31, 63, 46, 14);
 		contentPane.add(lblNewLabel);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(31, 88, 30, 22);
-		contentPane.add(comboBox);
 		
 		JLabel lblnombre = new JLabel("Nombre:");
 		lblnombre.setBounds(31, 132, 86, 14);
@@ -89,8 +86,12 @@ public class VistaUproyec extends JFrame {
 		btnBuscar.setBounds(72, 88, 46, 23);
 		contentPane.add(btnBuscar);
 		
+		textFieldID = new JTextField();
+		textFieldID.setBounds(31, 89, 34, 23);
+		contentPane.add(textFieldID);
+		textFieldID.setColumns(10);
+		
 		
 		
 	}
-
 }

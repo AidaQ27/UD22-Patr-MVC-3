@@ -1,6 +1,7 @@
 package Modelo;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -59,4 +60,56 @@ public class ModeloCientifico {
 		}
 
 	}
+	
+	public Cientifico mostrarPorId(String DNI) {
+		
+		Cientifico cientifico = new Cientifico();
+		ResultSet rs = mysql.getByDni("cientificos", DNI);
+	
+		try {
+			rs.next();
+			cientifico.setNombre(rs.getString("Nombre"));
+			cientifico.setDNI(rs.getString("DNI"));
+			
+	
+			return cientifico;
+		} catch (SQLException e) {
+	
+			System.out.println("Fallo modelo cientificos al buscar por id");
+			System.out.println(e);
+			
+			return new Cientifico();
+		}
+	
+	
+	}
+	
+	public Cientifico mostrarPorDNI(String DNI) {
+		
+		Cientifico cientifico = new Cientifico();
+		ResultSet rs = mysql.getByDni("cientificos", DNI);
+	
+		try {
+			rs.next();
+			cientifico.setNombre(rs.getString("Nombre"));
+			cientifico.setDNI(rs.getString("DNI"));
+			
+	
+			return cientifico;
+		} catch (SQLException e) {
+	
+			System.out.println("Fallo modelo cientificos al buscar por DNI");
+			System.out.println(e);
+			
+			return new Cientifico();
+		}
+	
+	
+	}
+
+	public void delete(String dni) {
+		mysql.deleteRowDni("cientifico", dni);
+	}
+
+
 }

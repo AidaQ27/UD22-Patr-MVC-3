@@ -121,7 +121,7 @@ public class Controlador {
 
 					vistaPrincipal.getTextArea().setText("");
 					for (int i = 0; i < cientificos.size(); i++) {
-						Cientifico cientifico = cientifico.get(i);
+						Cientifico cientifico = cientificos.get(i);
 						String stringCientifico = cientifico.getDNI() + ". " + cientifico.getNombre() + "\n";
 								
 						vistaPrincipal.getTextArea().append(stringCientifico);
@@ -134,7 +134,7 @@ public class Controlador {
 
 					vistaPrincipal.getTextArea().setText("");
 					for (int i = 0; i < proyectos.size(); i++) {
-						Proyecto proyecto = proyecto.get(i);
+						Proyecto proyecto = proyectos.get(i);
 						vistaPrincipal.getTextArea().append(proyecto.getID() + ". " + proyecto.getNombre() + ", "
 								+ proyecto.getHoras() + "\n");
 
@@ -295,7 +295,7 @@ public class Controlador {
 						@Override
 						public void actionPerformed(ActionEvent e) {
 							try {
-								Cientifico cientifico = modeloCientif.mostrarPorId(Long.parseLong(vistaU.textFieldId.getText()));
+								Cientifico cientifico = modeloCientif.mostrarPorDNI(vistaUcient.textField_dni.getText());
 
 
 							} catch (Exception e2) {
@@ -333,7 +333,7 @@ public class Controlador {
 						@Override
 						public void actionPerformed(ActionEvent e) {
 							try {
-								ModeloCientifico.delete(Long.parseLong(VistaUcientf.textField_dni.getText()));
+								modeloCientif.delete(vistaUcient.textField_dni.getText());
 								JOptionPane dialog = new JOptionPane();
 								dialog.showMessageDialog(null, "Se ha eliminado el registro!");
 							} catch (Exception e2) {
@@ -368,7 +368,7 @@ public class Controlador {
 						public void actionPerformed(ActionEvent e) {
 
 							try {
-								Proyecto proyecto = modeloProyecto.mostrarPorId(Long.parseLong(VistaUproyec.textFieldId.getText()));
+								Proyecto proyecto = modeloProyecto.mostrarPorId(Long.parseLong(vistaUProyect.textFieldID.getText()));
 
 								vistaUProyect.textFieldNombre.setText(proyecto.getNombre());
 								vistaUProyect.textFieldHoras.setText(proyecto.getHoras());
@@ -387,12 +387,12 @@ public class Controlador {
 						public void actionPerformed(ActionEvent e) {
 							try {
 								Proyecto proyecto = new Proyecto();
-								proyecto.setID(Long.parseLong(VistaUproyec.textFieldId.getText()));
-								video.setTitle(VistaUproyec.textFieldTitle.getText());
-								video.setDirector(VistaUproyec.textFieldDirector.getText());
-								video.setId_cli(Integer.valueOf(VistaUproyec.textFieldIdCliente.getText()));
+								proyecto.setID(Long.parseLong(vistaUProyect.textFieldID.getText()));
+								proyecto.setNombre(vistaUProyect.textFieldNombre.getText());
+								proyecto.setHoras(vistaUProyect.textFieldHoras.getText());
+							
 
-								modeloVideos.update(video);
+								modeloProyecto.update(proyecto);
 
 								JOptionPane dialog = new JOptionPane();
 								dialog.showMessageDialog(null, "Se ha actualizado el registro!");
@@ -404,13 +404,13 @@ public class Controlador {
 						}
 					});
 					// Delete Video
-					VistaUproyec.btnEliminar.addActionListener(new ActionListener() {
+					vistaUProyect.btnEliminar.addActionListener(new ActionListener() {
 
 						@Override
 						public void actionPerformed(ActionEvent e) {
 							
 							try {
-								modeloProyecto.delete(Long.parseLong(VistaUproyec.textFieldId.getText()));
+								modeloProyecto.delete(Long.parseLong(vistaUProyect.textFieldID.getText()));
 								JOptionPane dialog = new JOptionPane();
 								dialog.showMessageDialog(null, "Se ha eliminado el registro.");
 							} catch (Exception e2) {
@@ -430,5 +430,5 @@ public class Controlador {
 				
 		
 		
-	}
+	
 	
