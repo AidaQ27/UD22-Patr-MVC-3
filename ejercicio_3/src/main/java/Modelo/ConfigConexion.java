@@ -1,13 +1,13 @@
 package Modelo;
 
-public class Config {
+public class ConfigConexion {
 
 	// direccion
 		private String direccion = "jdbc:mysql://192.168.1.145:3306";
 		private String user = "remote";
 		private String pass = "Reus_2022";
 		
-		public Config() {
+		public ConfigConexion() {
 		}
 
 		/**
@@ -30,4 +30,28 @@ public class Config {
 		public String getPass() {
 			return pass;
 		}
+
+		/**
+		 * @param direccion the direccion to set
+		 */
+		public void setDireccion(String direccion) {
+			this.direccion = direccion;
+		}
+
+		/**
+		 * @param user the user to set
+		 */
+		public void setUser(String user) {
+			this.user = user;
+		}
+
+		/**
+		 * @param pass the pass to set
+		 */
+		public void setPass(String pass) {
+			this.pass = pass;
+		}
+		
+
+		
 }

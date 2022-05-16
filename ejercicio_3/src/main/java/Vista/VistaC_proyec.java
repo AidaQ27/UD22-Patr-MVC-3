@@ -15,25 +15,10 @@ import javax.swing.JButton;
 public class VistaC_proyec extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField TxtField_Nombre;
-	private JTextField TxtField_Horas;
-
-
-	/**
-	 * Launch the application.
-	 */
-	public static void vista() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaC_proyec frame = new VistaC_proyec();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	public JTextField TxtField_Nombre;
+	public JTextField TxtField_Horas;
+	public JTextField txtField_ID_Cli;
+	public JButton btnEnviarDatos;
 
 	/**
 	 * Creacion de la vista Creación Tabla.
@@ -72,7 +57,7 @@ public class VistaC_proyec extends JFrame {
 		contentPane.add(TxtField_Horas);
 		
 		
-		JButton btnEnviarDatos = new JButton("Aceptar");
+		btnEnviarDatos = new JButton("Aceptar");
 		btnEnviarDatos.setFont(new Font("SansSerif", Font.PLAIN, 11));
 		btnEnviarDatos.setBounds(20, 182, 89, 23);
 		contentPane.add(btnEnviarDatos);

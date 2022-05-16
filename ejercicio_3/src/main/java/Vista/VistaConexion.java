@@ -15,26 +15,12 @@ import javax.swing.JPasswordField;
 
 public class VistaConexion extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JPasswordField passwordField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaConexion frame = new VistaConexion();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	public JPanel contentPane;
+	public JTextField textFieldIP;
+	public JTextField textFieldUser;
+	public JTextField passwordField;
+	public JPasswordField passwordField2;
+	public JButton btnConectar;
 
 	/**
 	 * Create the frame.
@@ -42,7 +28,7 @@ public class VistaConexion extends JFrame {
 	public VistaConexion() {
 		setTitle("CRUD");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 600);
+		setBounds(750, 200, 450, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -54,35 +40,43 @@ public class VistaConexion extends JFrame {
 		lblEfectueSuConexin.setBounds(87, 35, 261, 22);
 		contentPane.add(lblEfectueSuConexin);
 		
-		JLabel lblIp = new JLabel("IP:");
-		lblIp.setBounds(23, 82, 86, 14);
-		contentPane.add(lblIp);
+		JLabel ipLabel = new JLabel("IP:");
+		ipLabel.setBounds(23, 82, 86, 14);
+		contentPane.add(ipLabel);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(23, 107, 185, 20);
-		contentPane.add(textField);
+		textFieldIP = new JTextField();
+		textFieldIP.setText("192.168.1.145");
+		textFieldIP.setColumns(10);
+		textFieldIP.setBounds(23, 107, 185, 20);
+		contentPane.add(textFieldIP);
 		
-		JLabel lblUser = new JLabel("User:");
-		lblUser.setBounds(23, 149, 86, 14);
-		contentPane.add(lblUser);
+		JLabel userLabel = new JLabel("User:");
+		userLabel.setBounds(23, 149, 86, 14);
+		contentPane.add(userLabel);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(23, 174, 185, 20);
-		contentPane.add(textField_1);
+		textFieldUser = new JTextField();
+		textFieldUser.setText("remote");
+		textFieldUser.setColumns(10);
+		textFieldUser.setBounds(23, 174, 185, 20);
+		contentPane.add(textFieldUser);
 		
-		JLabel lblID_cli = new JLabel("Password:");
-		lblID_cli.setBounds(23, 224, 86, 14);
-		contentPane.add(lblID_cli);
+		JLabel passwordLabel = new JLabel("Password:");
+		passwordLabel.setBounds(23, 224, 86, 14);
+		contentPane.add(passwordLabel);
 		
-		JButton btnConectar = new JButton("Conectar");
+		btnConectar = new JButton("Conectar");
 		btnConectar.setFont(new Font("SansSerif", Font.PLAIN, 11));
 		btnConectar.setBounds(23, 314, 89, 23);
 		contentPane.add(btnConectar);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(23, 249, 185, 20);
+		passwordField2 = new JPasswordField();
+		passwordField2.setBounds(23, 348, 185, 20);
+		contentPane.add(passwordField2);
+		
+		passwordField = new JTextField();
+		passwordField.setText("Reus_2022");
+		passwordField.setColumns(10);
+		passwordField.setBounds(23, 280, 185, 20);
 		contentPane.add(passwordField);
 	}
 }

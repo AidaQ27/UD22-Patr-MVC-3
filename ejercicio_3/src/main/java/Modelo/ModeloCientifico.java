@@ -4,11 +4,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ModeloCientificos {
+public class ModeloCientifico {
 
 	private ConexionMySQL mysql;
 
-	public ModeloCientificos(ConexionMySQL mysql) {
+	public ModeloCientifico(ConexionMySQL mysql) {
 		this.mysql = mysql;
 	}
 

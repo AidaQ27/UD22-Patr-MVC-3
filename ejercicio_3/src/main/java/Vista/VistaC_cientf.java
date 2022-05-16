@@ -15,25 +15,8 @@ import javax.swing.JButton;
 public class VistaC_cientf extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField TxtField_Nombre;
-	
-
-
-	/**
-	 * Launch the application.
-	 */
-	public static void vista() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaC_cientf frame = new VistaC_cientf();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	public JTextField TxtField_Nombre;
+	public JButton btnEnviarDatos;
 
 	/**
 	 * Creacion de la vista Creacion Tabla.
@@ -64,7 +47,7 @@ public class VistaC_cientf extends JFrame {
 		contentPane.add(TxtField_Nombre);
 		
 		
-		JButton btnEnviarDatos = new JButton("Aceptar");
+		btnEnviarDatos = new JButton("Aceptar");
 		btnEnviarDatos.setFont(new Font("SansSerif", Font.PLAIN, 11));
 		btnEnviarDatos.setBounds(23, 143, 89, 23);
 		contentPane.add(btnEnviarDatos);

@@ -5,7 +5,7 @@ public class Conexion {
 	private ConexionMySQL mysql;
 	private String sqlQuery;
 
-	public Conexion() {
+	public Conexion(ConexionMySQL conexionMySQL) {
 		this.mysql = new ConexionMySQL();
 	}
 
