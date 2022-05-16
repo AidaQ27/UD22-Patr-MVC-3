@@ -18,7 +18,7 @@ public class Conexion {
 
 		/* Crear tabla cientifico */
 
-		sqlQuery = "CREATE TABLE cientifico (" + "DNI VARCHAR(10) PRIMARY KEY NOT NULL,"
+		sqlQuery = "CREATE TABLE IF NOT EXISTS cientifico (" + "DNI VARCHAR(10) PRIMARY KEY NOT NULL,"
 				+ "Nombre VARCHAR(100) DEFAULT NULL);";
 
 		mysql.insertQuery("Laboratorio", sqlQuery);

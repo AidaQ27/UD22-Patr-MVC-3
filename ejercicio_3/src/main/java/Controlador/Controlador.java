@@ -410,7 +410,7 @@ public class Controlador {
 						public void actionPerformed(ActionEvent e) {
 							
 							try {
-								modeloVideos.delete(Long.parseLong(VistaUproyec.textFieldId.getText()));
+								modeloProyecto.delete(Long.parseLong(VistaUproyec.textFieldId.getText()));
 								JOptionPane dialog = new JOptionPane();
 								dialog.showMessageDialog(null, "Se ha eliminado el registro.");
 							} catch (Exception e2) {

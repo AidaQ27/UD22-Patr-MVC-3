@@ -23,6 +23,7 @@ public class VistaUcientf extends JFrame {
 	public JTextField textField_dni;
 	public JButton btnEnviarDatos;
 	public JButton btnEliminar;
+	public JButton btnBuscar;
 	
 
 
@@ -63,6 +64,10 @@ public class VistaUcientf extends JFrame {
 		textField.setBounds(27, 145, 185, 20);
 		contentPane.add(textField);
 		
+		btnBuscar = new JButton("🔍︎");
+
+		btnBuscar.setBounds(67, 48, 46, 23);
+		contentPane.add(btnBuscar);
 	
 		btnEnviarDatos = new JButton("Actualizar");
 		btnEnviarDatos.setFont(new Font("SansSerif", Font.PLAIN, 11));
