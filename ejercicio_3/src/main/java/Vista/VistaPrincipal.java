@@ -54,21 +54,21 @@ public class VistaPrincipal extends JFrame {
 		pestanaNuevo.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(pestanaNuevo);
 		
-		JMenuItem nuevoClienteMenu = new JMenuItem("Cientificos");
+		nuevoClienteMenu = new JMenuItem("Cientificos");
 		nuevoClienteMenu.setHorizontalAlignment(SwingConstants.LEFT);
 		pestanaNuevo.add(nuevoClienteMenu);
 		
-		JMenuItem nuevoVideoMenu = new JMenuItem("Proyecto");
+		nuevoVideoMenu = new JMenuItem("Proyecto");
 		pestanaNuevo.add(nuevoVideoMenu);
 		
 		JMenu pestanaBuscar = new JMenu("Buscar");
 		menuBar.add(pestanaBuscar);
 		
-		JMenuItem buscarClienteMenu = new JMenuItem("Cientificos");
+		buscarClienteMenu = new JMenuItem("Cientificos");
 		buscarClienteMenu.setHorizontalAlignment(SwingConstants.LEFT);
 		pestanaBuscar.add(buscarClienteMenu);
 		
-		JMenuItem buscarVideoMenu = new JMenuItem("Proyecto");
+		buscarVideoMenu = new JMenuItem("Proyecto");
 		pestanaBuscar.add(buscarVideoMenu);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -81,7 +81,7 @@ public class VistaPrincipal extends JFrame {
 		tituloLable.setBounds(172, 24, 261, 22);
 		contentPane.add(tituloLable);
 		
-		JComboBox<String> desplegable = new JComboBox<String>();
+		desplegable = new JComboBox<String>();
 		desplegable.setModel(new DefaultComboBoxModel<String>(new String[] {"Tabla Cientifico", "Tabla Proyecto", "Ambas Tablas"}));
 		desplegable.setBounds(223, 73, 183, 31);
 		contentPane.add(desplegable);

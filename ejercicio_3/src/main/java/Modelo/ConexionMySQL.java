@@ -19,7 +19,7 @@ public class ConexionMySQL {
 			System.out.println("Intentando conectar con la base de datos...");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conexion = DriverManager.getConnection("jdbc:mysql://" + config.getDireccion() + ":3306", config.getUser(), config.getPass());
-			this.connectionObj = conexion;
+			connectionObj = conexion;
 			System.out.println("Conectado a la base de datos con exito");
 			conexionEstablecida = true;
 		} catch (Exception e) {
