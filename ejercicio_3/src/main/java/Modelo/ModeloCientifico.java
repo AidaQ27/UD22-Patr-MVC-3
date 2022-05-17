@@ -17,7 +17,9 @@ public class ModeloCientifico {
 
 		try {
 			String sqlQuery = "INSERT INTO cientifico (DNI, Nombre) VALUE (\""
-					+ cientifico.getDNI() + "\",\"" + cientifico.getNombre() + ");"; 
+					+ cientifico.getDNI() + "\",\"" + cientifico.getNombre() + "\");"; 
+			mysql.insertQuery("Laboratorio", sqlQuery);
+			
 		} catch (Exception e) {
 			System.out.println("Fallo insercion modelo cliente");
 		}
@@ -31,12 +33,14 @@ public class ModeloCientifico {
 
 			ArrayList<Cientifico> arrCientificos = new ArrayList<Cientifico>();
 			
-			rs.next();
+			while(rs.next()) {
 			
 			// Crear cliente y anadirlo al array
 			Cientifico cientifico = new Cientifico(rs.getString("DNI"), rs.getString("Nombre"));
 			
 			arrCientificos.add(cientifico);
+			
+			}
 			
 			return arrCientificos;
 			
@@ -51,8 +55,8 @@ public class ModeloCientifico {
 	public void update(Cientifico cientifico) {
 
 		try {
-			String sqlQuery = "UPDATE cientificos SET (DNI, Nombre) WHERE ID = "
-					+ cientifico.getDNI() + cientifico.getNombre() +";";
+			String sqlQuery = "UPDATE cientifico SET DNI='"+ cientifico.getDNI()+"', nombre='"+cientifico.getNombre()+"' WHERE DNI = "
+					+ cientifico.getDNI() + ";";
 			mysql.insertQuery("Laboratorio", sqlQuery);
 
 		} catch (Exception e) {
@@ -64,7 +68,7 @@ public class ModeloCientifico {
 	public Cientifico mostrarPorId(String DNI) {
 		
 		Cientifico cientifico = new Cientifico();
-		ResultSet rs = mysql.getByDni("cientificos", DNI);
+		ResultSet rs = mysql.getByDni("cientifico", DNI);
 	
 		try {
 			rs.next();
@@ -87,12 +91,13 @@ public class ModeloCientifico {
 	public Cientifico mostrarPorDNI(String DNI) {
 		
 		Cientifico cientifico = new Cientifico();
-		ResultSet rs = mysql.getByDni("cientificos", DNI);
+		ResultSet rs = mysql.getByDni("cientifico", DNI);
 	
 		try {
 			rs.next();
-			cientifico.setNombre(rs.getString("Nombre"));
 			cientifico.setDNI(rs.getString("DNI"));
+			cientifico.setNombre(rs.getString("Nombre"));
+			
 			
 	
 			return cientifico;

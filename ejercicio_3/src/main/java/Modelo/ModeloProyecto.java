@@ -16,7 +16,7 @@ public class ModeloProyecto {
 
 		try {
 			String sqlQuery = "INSERT INTO proyecto (Nombre, Horas) VALUE (\""
-					+ proyecto.getNombre() + "\",\"" + proyecto.getHoras() + ");";
+					+ proyecto.getNombre() + "\",\"" + proyecto.getHoras() + "\");";
 			mysql.insertQuery("Laboratorio", sqlQuery);
 		} catch (Exception e) {
 			System.out.println("Fallo insercion modelo video");

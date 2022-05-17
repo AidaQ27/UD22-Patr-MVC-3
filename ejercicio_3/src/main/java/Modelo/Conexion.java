@@ -6,7 +6,7 @@ public class Conexion {
 	private String sqlQuery;
 
 	public Conexion(ConexionMySQL conexionMySQL) {
-		this.mysql = new ConexionMySQL();
+		this.mysql = conexionMySQL;
 	}
 
 
@@ -26,7 +26,7 @@ public class Conexion {
 
 		/* Crear tabla proyecto */
 
-		sqlQuery = "CREATE TABLE proyecto(" + "ID CHAR(4) PRIMARY KEY NOT NULL AUTO_INCREMENT,"
+		sqlQuery = "CREATE TABLE IF NOT EXISTS proyecto(" + "ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,"
 				+ "Nombre VARCHAR(100) DEFAULT NULL ," + "Horas INT(11) DEFAULT NULL);";
 				
 		mysql.insertQuery("Laboratorio", sqlQuery);
@@ -37,14 +37,14 @@ public class Conexion {
 		/*Crear tabla asignado */
 		
 		sqlQuery = "CREATE TABLE asignado("	
-				+ "ID_ASIGNADO CHAR(10) PRIMARY KEY, "
+				+ "ID_ASIGNADO INT(11) PRIMARY KEY AUTO_INCREMENT, "
 				+ "ID_CIENTIFICO VARCHAR(8),"
 				+ "KEY (ID_CIENTIFICO),"
-				+ "FOREIGN KEY (ID_CIENTIFICO) REFERENCES CIENTIFICOS(DNI) "
+				+ "FOREIGN KEY (ID_CIENTIFICO) REFERENCES cientifico(DNI) "
 				+ "ON DELETE CASCADE ON UPDATE CASCADE, "
 				+ "ID_PROYECTO INT,"
 				+ "KEY (ID_PROYECTO),"
-				+ "FOREIGN KEY (ID_PROYECTO) REFERENCES PROYECTO(ID)  "
+				+ "FOREIGN KEY (ID_PROYECTO) REFERENCES proyecto(ID)  "
 				+ "ON DELETE CASCADE ON UPDATE CASCADE)";
 
 		mysql.insertQuery("Laboratorio", sqlQuery);
@@ -55,12 +55,12 @@ public class Conexion {
 	
 	public void insertarRegistrosCientificos() {
 		
-		sqlQuery = "INSERT INTO cientifico(DNI, Nombre) VALUE"
+		sqlQuery = "INSERT INTO cientifico (DNI, Nombre) VALUE"
 				+ "(\"39562548\",\"Manolo\"),"
 				+ "(\"39562525\",\"Maria\"),"
 				+ "(\"39562501\",\"Juan\"),"
 				+ "(\"39183948\",\"Belen\"),"
-				+ "(\"39192398\",\"Azucena\",);";
+				+ "(\"39192398\",\"Azucena\");";
 		mysql.insertQuery("Laboratorio", sqlQuery);
 	}
 	
@@ -77,6 +77,18 @@ public class Conexion {
 		+ "(\"YWA\",100),"
 		+ "(\"REST\",215);";
 		mysql.insertQuery("Laboratorio", sqlQuery);
+	}
+	
+	
+	public void insertarRegistrosAsignado() {
+		
+		sqlQuery = "INSERT INTO asignado (ID_ASIGNADO, ID_CIENTIFICO, ID_PROYECTO) VALUE" 
+				+ "(\"39562548\",1),"
+				+ "(\"39562525\",2),"
+				+ "(\"39183948\",3);";
+				
+				mysql.insertQuery("Laboratorio", sqlQuery);
+		
 	}
 
 }

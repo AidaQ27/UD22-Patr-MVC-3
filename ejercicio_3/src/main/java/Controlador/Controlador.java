@@ -181,7 +181,9 @@ public class Controlador {
 					// Crear base de datos si no existe
 					conexionMySQL.dropDB("Laboratorio");
 					conexionMySQL.createDB("Laboratorio");
+					
 					Conexion conexion = new Conexion(conexionMySQL);
+					
 					conexion.crearTablaCientifico();
 					conexion.crearTablaProyecto();
 					conexion.crearTablaAsignado();
@@ -228,6 +230,7 @@ public class Controlador {
 						try {
 							
 							Cientifico cientifico = new Cientifico();
+							cientifico.setDNI(vistaC_cientf.TxtField_DNI.getText());
 							cientifico.setNombre(vistaC_cientf.TxtField_Nombre.getText());
 							
 							modeloCientif.insertar(cientifico);
@@ -296,7 +299,9 @@ public class Controlador {
 						public void actionPerformed(ActionEvent e) {
 							try {
 								Cientifico cientifico = modeloCientif.mostrarPorDNI(vistaUcient.textField_dni.getText());
-
+								
+								vistaUcient.textField_dni.setText(cientifico.getDNI());
+								vistaUcient.textField.setText(cientifico.getNombre());
 
 							} catch (Exception e2) {
 								JOptionPane dialog = new JOptionPane();
