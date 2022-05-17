@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+
+
+
 public class ConexionMySQL {
 
 	public Connection connectionObj;
@@ -19,7 +22,7 @@ public class ConexionMySQL {
 			System.out.println("Intentando conectar con la base de datos...");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conexion = DriverManager.getConnection("jdbc:mysql://" + config.getDireccion() + ":3306", config.getUser(), config.getPass());
-			connectionObj = conexion;
+			this.connectionObj = conexion;
 			System.out.println("Conectado a la base de datos con exito");
 			conexionEstablecida = true;
 		} catch (Exception e) {

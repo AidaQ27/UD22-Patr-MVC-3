@@ -318,7 +318,7 @@ public class Controlador {
 								cientifico.setDNI(vistaUcient.textField_dni.getText());
 								
 
-								ModeloCientifico.update(cientifico);
+								modeloCientif.update(cientifico);
 								JOptionPane dialog = new JOptionPane();
 								dialog.showMessageDialog(null, "Registro actualizado con éxito!");
 							} catch (Exception e2) {
