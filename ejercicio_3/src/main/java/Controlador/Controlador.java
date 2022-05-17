@@ -300,8 +300,8 @@ public class Controlador {
 							try {
 								Cientifico cientifico = modeloCientif.mostrarPorDNI(vistaUcient.textField_dni.getText());
 								
-								vistaUcient.textField_dni.setText(cientifico.getDNI());
-								vistaUcient.textField.setText(cientifico.getNombre());
+								//vistaUcient.textField_dni.setText(cientifico.getDNI());
+								vistaUcient.textField_nombre.setText(cientifico.getNombre());
 
 							} catch (Exception e2) {
 								JOptionPane dialog = new JOptionPane();
@@ -319,7 +319,7 @@ public class Controlador {
 							try {
 								Cientifico cientifico = new Cientifico();
 								
-								cientifico.setNombre(vistaUcient.textField.getText());
+								cientifico.setNombre(vistaUcient.textField_nombre.getText());
 								cientifico.setDNI(vistaUcient.textField_dni.getText());
 								
 

@@ -19,7 +19,7 @@ public class VistaUcientf extends JFrame {
 
 	
 	private JPanel contentPane;
-	public JTextField textField;
+	public JTextField textField_nombre;
 	public JTextField textField_dni;
 	public JButton btnEnviarDatos;
 	public JButton btnEliminar;
@@ -59,13 +59,12 @@ public class VistaUcientf extends JFrame {
 		lblNombre.setBounds(27, 120, 86, 14);
 		contentPane.add(lblNombre);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(27, 145, 185, 20);
-		contentPane.add(textField);
+		textField_nombre = new JTextField();
+		textField_nombre.setColumns(10);
+		textField_nombre.setBounds(27, 145, 185, 20);
+		contentPane.add(textField_nombre);
 		
 		btnBuscar = new JButton("🔍︎");
-
 		btnBuscar.setBounds(67, 48, 46, 23);
 		contentPane.add(btnBuscar);
 	

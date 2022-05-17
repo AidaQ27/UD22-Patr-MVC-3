@@ -188,10 +188,10 @@ public class ConexionMySQL {
 	
 /*Show a Row*/
 	
-	public ResultSet getByDni(String tableName, String dni) {
+	public ResultSet getByDni(String tableName, String DNI) {
 		try {
 			// Insert into the table statement
-			String query = "SELECT * FROM " + tableName + " WHERE DNI=" + dni + ";";
+			String query = "SELECT * FROM " + tableName + " WHERE DNI=" + DNI + ";";
 			
 			Statement st = this.connectionObj.createStatement();
 			
