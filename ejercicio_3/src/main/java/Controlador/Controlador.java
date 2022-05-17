@@ -137,9 +137,13 @@ public class Controlador {
 						Proyecto proyecto = proyectos.get(i);
 						vistaPrincipal.getTextArea().append(proyecto.getID() + ". " + proyecto.getNombre() + ", "
 								+ proyecto.getHoras() + "\n");
+						
+						
 
 					}
 					break;
+				
+					
 
 				default:
 
@@ -189,6 +193,7 @@ public class Controlador {
 					conexion.crearTablaAsignado();
 					conexion.insertarRegistrosCientificos();
 					conexion.insertarRegistrosProyecto();
+					conexion.insertarRegistrosAsignado();
 					
 					// Instanciar Modelos
 					modeloCientif = new ModeloCientifico(conexionMySQL);

@@ -82,7 +82,7 @@ public class VistaPrincipal extends JFrame {
 		contentPane.add(tituloLable);
 		
 		desplegable = new JComboBox<String>();
-		desplegable.setModel(new DefaultComboBoxModel<String>(new String[] {"Tabla Cientifico", "Tabla Proyecto", "Tabla asignado"}));
+		desplegable.setModel(new DefaultComboBoxModel<String>(new String[] {"Tabla Cientifico", "Tabla Proyecto"}));
 		desplegable.setBounds(223, 73, 183, 31);
 		contentPane.add(desplegable);
 		

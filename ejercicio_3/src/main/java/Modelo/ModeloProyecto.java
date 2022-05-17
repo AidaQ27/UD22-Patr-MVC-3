@@ -52,7 +52,7 @@ public class ModeloProyecto {
 	public Proyecto mostrarPorId(Long id) {
 		
 		Proyecto proyecto = new Proyecto();
-		ResultSet rs = mysql.getRow("clientes", id);
+		ResultSet rs = mysql.getRow("proyecto", id);
 	
 		try {
 			rs.next();

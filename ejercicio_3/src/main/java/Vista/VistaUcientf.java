@@ -49,7 +49,7 @@ public class VistaUcientf extends JFrame {
 		lblNewLabel.setBounds(31, 52, 46, 14);
 		contentPane.add(lblNewLabel);
 		
-		JTextField textField_dni = new JTextField();
+		textField_dni = new JTextField();
 		textField_dni.setColumns(10);
 		textField_dni.setBounds(27, 77, 185, 20);
 		contentPane.add(textField_dni);

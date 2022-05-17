@@ -82,7 +82,7 @@ public class Conexion {
 	
 	public void insertarRegistrosAsignado() {
 		
-		sqlQuery = "INSERT INTO asignado (ID_ASIGNADO, ID_CIENTIFICO, ID_PROYECTO) VALUE" 
+		sqlQuery = "INSERT INTO asignado (ID_CIENTIFICO, ID_PROYECTO) VALUE" 
 				+ "(\"39562548\",1),"
 				+ "(\"39562525\",2),"
 				+ "(\"39183948\",3);";
